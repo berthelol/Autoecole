@@ -1,0 +1,682 @@
+/* ==========================================================================
+   Stop N Drive
+   Author: Ancora Dual http://www.ancoradual.com
+   ========================================================================== */
+
+/* Import Basic Files
+================================================== */
+
+@import url(http://fonts.googleapis.com/css?family=Luckiest+Guy|Oswald:300,400,700&subset=latin,latin-ext);
+@import url("font-awesome.min.css");           /*  Font Awesome */
+
+/* Site Styles
+================================================== */
+
+/*-------------------------------------------------------------------------*/
+/*	Custom Bootstrap
+/*-------------------------------------------------------------------------*/
+
+.container{min-width:960px;}
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {font-family: Oswald, Arial, sans-serif;font-weight:normal;font-weight: 300; line-height: 1.1;color: #666666; margin-bottom: 18px;}
+b,strong { font-weight: 400;}
+header nav a:focus { outline: 0;}
+
+
+
+.form-control:focus { border-color: #44ac37; outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(35, 115, 0, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(35, 115, 0, 0.6);
+          
+}
+
+/*-------------------------------------------------------------------------*/
+/*	General
+/*-------------------------------------------------------------------------*/
+
+html { height:auto; }
+body {background:url(../img/fons_fosc.png); padding:0; height:auto; min-height:100%; font-family:Oswald, Arial, sans-serif;font-weight:300;font-size:16px;}
+body:after { position:absolute; display:block; content:''; top:0; left:0; bottom:0; right:0; z-index:-3; }
+
+strong{font-weight:bold;}
+::-moz-selection {background: #237300;text-shadow: none;color:#fff;}
+::selection {background: #237300;text-shadow: none;color:#fff;}
+
+img{max-width:100%;}
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+p { margin-bottom:22px;text-align:justify; }
+ul{padding:0;}
+
+.clearfix:before, .clearfix:after { display:table; content:""; line-height:0; }
+.clearfix:after, .clear { clear:both; }
+.left{float:left;} 
+.right{float:right;}
+.centra, .centra p{text-align:center;}
+
+a { outline:none; -webkit-transition:0.3s; -moz-transition:0.3s; -o-transition:0.3s; transition:0.3s; }
+a:hover, a:focus { text-decoration:none; }
+
+section a, .modal a , a.link{text-decoration:underline; color:#237300;} 
+section a:hover, .modal a:hover, a.link:hover, section a:focus, .modal a:focus, a.link:focus {color:#666;}
+
+h1{font-family:"Luckiest Guy", Arial, sans-serif;font-size:40px;color:#237300;margin-bottom:30px;line-height:30px;}
+h2{font-family:"Luckiest Guy", Arial, sans-serif;font-size:29px;color:#237300;line-height:14px;}
+
+ul{list-style:none;}
+label small{color:Red;}
+
+nav, section{min-width:960px;} /* Apaño */
+
+
+/*-------------------------------------------------------------------------*/
+/*	Modales
+/*-------------------------------------------------------------------------*/
+
+.modal-header, .modal-footer{border:none;padding-left:20px;}
+.modal-content{background:#cecfca;padding:10px;}
+.modal-content .boto{padding-top:15px; text-align:right;}
+
+#DetalleReserva td:last-child{text-align:right;padding-right:25px;width:100px;} 
+
+.recuento {margin:5px 0 10px 0;float:right;font-size:105%;text-transform:uppercase;font-weight:400;}
+.recuento td{text-align:right;padding:5px 10px;}
+.recuento .total{width:100px;background:#fff;border:1px solid #237300;border-bottom:3px solid #237300;padding:5px 10px;color:#237300;}
+.modal-content h2{text-align:center; font-size:240%;margin:20px 0 15px 0;}
+.modal-content p{text-align:center;}
+.modal-content .btn{margin:10px auto;display:block;}
+.modal-body{padding-top:0;}
+.modal-header{position:relative;}
+.modal .cierra{position:absolute;top:-20px; right:-20px;background:transparent url(../img/ico_salir.png) no-repeat 50% 50%;height:38px;width:38px;z-index:100;border:none;}
+
+.modal .rojo{color:#ae3535;}
+
+.registro label{font-weight:400;text-transform:uppercase;}
+.registro form{margin-top:15px;}
+.registro .btn{margin-top:25px;}
+
+.confirmacion {text-align:center;}
+.confirmacion p{font-size:120%;padding:15px 30px 5px 30px;}
+a.btn{text-decoration:none; color:#fff;display:inline-block;}
+a.btn:hover{color:#fff;}
+
+/*-------------------------------------------------------------------------*/
+/*	Botones e iconos comunes
+/*-------------------------------------------------------------------------*/
+
+.btn-primary {text-transform:uppercase; color: #ffffff; background-color: #44ac37; border-color: #45d633; border-bottom:#258918 1px solid;padding:8px 14px;}
+.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active { color: #ffffff; background-color: #237300; border-color: #2a690e;}
+.btn-primary.disabled,.btn-primary[disabled],fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,.btn-primary[disabled]:hover,fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,.btn-primary[disabled]:focus,fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,.btn-primary[disabled]:active,fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,.btn-primary[disabled].active,fieldset[disabled] .btn-primary.active {  background-color: #2a690e; border-color: #237300;}
+
+
+.btn-facebook {text-transform:uppercase; color: #ffffff; background-color: #627aad; border-color: #c8d1e2; border-bottom:#47639e 1px solid;padding:8px 14px;}
+.btn-facebook:hover,.btn-facebook:focus,.btn-facebook:active,.btn-facebook.active { color: #ffffff; background-color: #47639e; border-color: #627aad;}
+.btn-facebook.disabled,.btn-facebook[disabled],fieldset[disabled] .btn-facebook,
+.btn-facebook.disabled:hover,.btn-facebook[disabled]:hover,fieldset[disabled] .btn-facebook:hover,
+.btn-facebook.disabled:focus,.btn-facebook[disabled]:focus,fieldset[disabled] .btn-facebook:focus,
+.btn-facebook.disabled:active,.btn-facebook[disabled]:active,fieldset[disabled] .btn-facebook:active,
+.btn-facebook.disabled.active,.btn-facebook[disabled].active,fieldset[disabled] .btn-facebook.active {  background-color: #8e9fc0; border-color: #627aad;}
+.btn-facebook.unlink {text-transform:uppercase; color: #ffffff; background-color: #8e9fc0; border-color: #c8d1e2; border-bottom:#47639e 1px solid;padding:8px 14px;}
+
+
+
+.btn-danger{text-transform:uppercase;padding:8px 14px;}
+
+.btn-default { color: #666666; background-color: #efefef; border-color: #ececec; border-bottom:#9b9b9b 1px solid;}
+.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active { color: #222; background-color: #d0d0d0; border-color: #c1c0c0;}
+.btn-default.disabled,.btn-default[disabled],fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,.btn-default[disabled]:hover,fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,.btn-default[disabled]:focus,fieldset[disabled] .btn-default:focus,
+.btn-default.disabled:active,.btn-default[disabled]:active,fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,.btn-default[disabled].active,fieldset[disabled] .btn-default.active {  background-color: #c1c0c0; border-color: #d0d0d0;}
+
+.b_salir{background:url(../img/ico_salir.png) no-repeat 100% 50%; padding:8px 50px 0 0; text-align:right;text-transform:uppercase;height:37px;display:block;text-decoration:none;color:#323232;font-weight:700; font-size:100%;}
+.b_salir:hover{opacity:0.8;filter:alpha(opacity=80);}
+
+i.plus{background:url(../img/ico_plus.png);display:block; margin:0 auto;width:37px; height:38px;}
+i.plus:hover{opacity:0.8;filter:alpha(opacity=80);}
+
+.nobg{background:none; border:none;padding:0;margin:0;}
+
+.btn-large{font-size:180%; padding:15px 30px; margin-top:120px; margin-bottom:10px}
+
+/*-------------------------------------------------------------------------*/
+/*	Header
+/*-------------------------------------------------------------------------*/
+
+header  {}
+header nav {background:url(../img/nav.jpg) repeat-x;} 
+header nav .container {position:relative;} 
+header nav ul {margin:0; padding:0;padding-left:0;}
+header nav ul li{float:left;list-style:none;font-weight:400;font-size:14px;background:url(../img/separador.png) no-repeat 0 0;}
+header nav i{position:absolute; margin-left:8px;color:#999999;font-size:12px;top:18px;right:13px;}
+header nav a{color:#3a3a3a;display:block;padding:18px 25px 18px 25px;position:relative;}
+header nav a.link{padding:10px 30px 20px 20px;display:inline-block;}
+header nav li.active a{background:url(../img/nav_active.jpg) repeat-x;margin-left:1px;text-decoration:none;}
+header nav .active a{color:#000;}
+header nav a:hover, header nav a:focus, header nav a:active{color:#000 !important;text-decoration:none;}
+header nav .menu_inicio {background:none;}
+header nav .menu_inicio a{padding-left:0;color:#237300;font-weight:400;}
+header nav .menu_inicio a:hover, #bLogin:hover{color:#999;}
+
+header nav .menu_cuenta{display:none;}
+
+#bLogin{border-left:1px solid #c0c1c4;border-right:1px solid #c0c1c4;padding-left:26px; padding-right:37px;}
+.bLog{font-family:"Luckiest Guy", Arial, sans-serif;font-size:29px;float:right;padding:8px 30px 8px 20px;}
+.bLog.in{color:#237300;}
+.bLog.out{color:#ae3535;}
+.bLog.in.dentro{border-left:1px dashed #c0c1c4;}
+.bLog.dentro{display:none;border-right:1px dashed #c0c1c4;padding-right:17px;padding-left:17px;}
+
+
+#capa_login{background:#e3e2e7;border:1px solid #c0c1c4; border-top:none; width:300px; display:none; position:absolute;right:15px; top:57px;height:auto;padding-top:20px; padding-bottom:20px;z-index:9000;}
+#capa_login .btn{margin-left:15px;margin-right:15px;}
+#capa_login #i_Pw{margin-top:10px; margin-bottom:0px;}
+#capa_login #i_recordar{margin-left:15px;}
+#capa_login .btn-facebook {
+    margin-left:0;margin-right:0;
+    width: 100%;
+}
+
+.btn-facebook span{margin-right:10px; font-size:150%}
+
+header ul{margin:0;}
+header ul li{float:left;}
+
+header .idiomas.col-xs-2 {width:170px;}
+header .social.col-xs-2 {width:200px;}
+header .idiomas li{padding-top:10px;margin-right:10px;}
+header .idiomas li:last-child{margin-right:0;}
+header .idiomas a, header .idiomas a:active{color:#555 !important;}
+header .idiomas a:hover{color:#000;}
+
+header .info_login{color:#fff;font-weight:400;}
+header .info_login span{color:#43aa36;}
+header .info_login ul{display:none;}
+header .info_login li{float:left; padding:15px 5px 0 5px;}
+header .info_login li.isAdmin, header .info_login li.isAdmin span{color:yellow}
+
+header .social {float:right;}
+header .social li{float:right;}
+header .social a{display:block;height:56px;width:56px;background-repeat:no-repeat;text-indent:-99999px; overflow:hidden;}
+header .social .tw a{background-image:url(../img/ico_tw.png);}
+header .social .fb a{background-image:url(../img/ico_fb.png);}
+header .social .yt a{background-image:url(../img/ico_yt.png);}
+header .social a:hover{opacity:0.6;filter:alpha(opacity=60);}
+
+/*-------------------------------------------------------------------------*/
+/*	Central
+/*-------------------------------------------------------------------------*/
+
+/*section{background:#cecfca url(../img/destello.png) no-repeat 50% 0%;padding-top:30px; padding-bottom:60px;min-height:500px;}*/
+section{background:#cecfca  url(../img/destello.png) no-repeat 50% -600px; background-attachment:fixed;padding-top:30px; padding-bottom:60px;min-height:500px;}
+
+.central{padding-right:40px;}
+
+section p {color:#5d5d5d; font-size:110%;}
+section p strong{font-weight:400;}
+
+
+.contactar{background:url(../img/ico_contacto.png) no-repeat;width:102px; height:42px;display:block;text-indent:-99999px; overflow:hidden;}
+.contactar:hover{opacity:0.6;filter:alpha(opacity=60);}
+
+.tabla{width:100%;background:#fff;border:1px solid #237300;border-bottom:3px solid #237300;text-transform:uppercase;}
+.tabla th{background:url(../img/tabla_head.jpg) repeat-x;padding:14px 5px; text-align:center;}
+.tabla tr:hover td{background-color:#dffcdb;}
+.tabla td{border:1px solid #237300;padding:5px 10px;font-weight:400;font-size:15px;}
+.tabla i.fa-info-circle{color:#37b500;font-size:140%;margin-right:3px;}
+
+
+/*-------------------------------------------------------------------------*/
+/*	Sidebar
+/*-------------------------------------------------------------------------*/
+
+.sidebar{border-left:1px solid #c0c0c0;}
+.sidebar h2{margin:20px 0 0 15px;padding-bottom:20px; }
+.sidebar h2.head{background:url(../img/tabla_head.jpg) repeat-x;padding:17px;border:1px solid #237300;border-bottom:none;text-align:center;}
+
+.menu-sidebar {border:1px solid #237300;margin-left:15px;}
+.menu-sidebar a{text-transform:uppercase;text-decoration:none;color:#323232; display:block;background-color:#ffffff;padding:6px 10px 6px 10px;border-bottom:1px solid #237300;}
+.menu-sidebar a span{float:right;}
+.menu-sidebar a:hover, .menu-sidebar .actiu a{background-color:#cecfca;}
+.menu-sidebar .actiu a{font-weight:700;} 
+
+.menu-sidebar .usr_perfil a{background-image:url(../img/ico_perfilmini.png);background-position:97% 50%;background-repeat:no-repeat;}
+
+.sidebar .nombre{float:left; color:#237300;font-size:120%;width:110px;line-height:120%; font-weight:700;padding-top:15px;}
+
+.sidebar .banner{background:url(../img/sidebar_duda.png) no-repeat 50% 50%;margin-top:30px;height:auto;width:265px;height:273px;}
+.sidebar .banner h2{padding-top:20px;line-height:110%;}
+.fr .sidebar .banner{background-position:50% 50px;height:320px;}
+
+
+
+/*-------------------------------------------------------------------------*/
+/*	Footer
+/*-------------------------------------------------------------------------*/
+
+footer  {padding-top:35px; padding-bottom:20px;color:#fff;}
+footer  ul{text-transform:uppercase;list-style:none;}
+footer h1{color:#237300; font-size:36px;margin-top:0;margin-bottom:25px;}
+
+footer .info h3{color:#fff;font-size:17px;margin-bottom:3px;margin-top:18px;}
+footer .info{font-family:"Luckiest Guy", Arial, sans-serif;font-size:21px;}
+footer .info li{margin-bottom:19px;}
+footer .info a{color:#fff;}
+
+
+footer .llegar{font-family:"Luckiest Guy", Arial, sans-serif;font-size:20px;margin-top:0;}
+footer .llegar li{height:23px; padding-left:34px;margin-top:10px;}
+footer .L1{background:url(../img/ico_L1.jpg) no-repeat 0 50%;}
+footer .L3{background:url(../img/ico_L3.jpg) no-repeat 0 50%;}
+footer .L5{background:url(../img/ico_L5.jpg) no-repeat 0 50%;}
+footer .bus{background:url(../img/ico_bus.png) no-repeat 0 50%;}
+
+footer .librooro{color:white;border-top: dotted #237300 2px;margin-top:20px; padding-top:10px; font-family:"Luckiest Guy", Arial, sans-serif;font-size:24px;}
+footer .librooro a{color:white; text-decoration:underline; padding-left:5px}
+
+.en .librooro{font-size:22px;}
+
+footer .mapa {padding-top:5px;}
+
+footer .words {float:right;}
+footer .words li{padding-bottom:3px;} 
+
+
+footer .copy{font-size:13px; font-family:Arial, Sans-Serif;padding-top:30px;}
+footer .copy a{color:#fff; font-weight:bold;}
+
+/*-------------------------------------------------------------------------*/
+/*	Contenido zona pública
+/*-------------------------------------------------------------------------*/
+
+.endesarrollo{background:url(../img/misreservas.png) no-repeat 70% 50%; min-height:470px;}
+.endesarrollo p{width:340px; font-size:22px;text-transform:uppercase;text-align:left;}
+
+/* Index */
+
+#index .comming{padding-top:80px;padding-bottom:50px;font-size:180%;}
+
+section#index{padding-top:0;}
+.bienvenida h2{font-size:24px;line-height:14px;margin-top:5px;}
+
+.destacat{background:#fff;text-align:center;padding-top:30px;padding-bottom:30px;}
+.destacat .central{border-left:1px solid #dadada; border-right:1px solid #dadada;}
+.destacat p{text-align:center;max-width:298px;margin:0 auto 15px auto;}
+
+
+
+.index2 {padding-top:15px;}
+.index2 h2{margin-bottom:20px;border-bottom:1px solid #c6c6c4; padding-bottom:13px;}
+.index2 .checkbox{padding-left:15px; font-size:80%; font-family:Arial, Sans-Serif;font-weight:bold;}
+.index2 .btn{float:right;margin-right:15px;}
+.index2 #i_comentarios{margin-top:10px;height:80px;}
+
+.yes li{padding-bottom:15px;color:#5d5d5d; font-size:80%; font-weight:400;}
+.yes li img{margin-top:5px;}
+
+.slideshow-container{}
+.slideshow{padding:0;margin:0;height:438px !important;}
+.slideshow li{padding:0;margin:0;height:438px !important;}
+.slide1{background:url(../img/slides/1.png) no-repeat 100% 0%;}
+.slide2{background:url(../img/slides/2.png) no-repeat 100% 0%;}
+.slide3{background:url(../img/slides/3.png) no-repeat 100% 0%;}
+.slide4{background:url(../img/slides/4.png) no-repeat 100% 0%;}
+.slide5{background:url(../img/slides/5.png) no-repeat 100% 0%;}
+.slide6{background:url(../img/slides/6.png) no-repeat 100% 0%;}
+.slide7{background:url(../img/slides/7.png) no-repeat 100% 0%;}
+.slide8{background:url(../img/slides/8.png) no-repeat 100% 0%;}
+
+.content-slide{width:590px;padding:0px 0 40px 0;}
+.content-slide h2{font-size:41px;line-height:100%;margin-top:35px;}
+.content-slide h2 span{font-size:65px;}
+.content-slide p{width:430px;font-size:110%;text-transform:uppercase;}
+.content-slide img{float:left; margin-right:80px;}
+.content-slide .btn{margin-top:7px;}
+
+.slide2  .content-slide p{width:500px;}
+.slide3  .content-slide p{width:500px;}
+.slide6  h2 span{font-size:55px;}
+
+.slide7  h2 {font-size:38px;line-height:1.4em;}
+.slide7  h2 span{}
+
+.fr .slide5  .content-slide p{width:500px;}
+.fr .slide5  h2{font-size:38px;}
+
+.en .slide1  h2 {font-size:35px;}
+.en .slide3  h2 span{font-size:60px;}
+.en .slide5  h2 span{font-size:55px;}
+
+/* Teorica - Parte publica */
+
+#teorica .central{background:url(../img/teorica.png) no-repeat 100% 50px;}
+#teorica iframe{margin-bottom:30px;}
+#teorica h2{margin-top:50px;}
+
+/* Teorica - Parte privada */
+
+.miteorica {background-:url(../img/teorica.png) no-repeat 90% 100%;min-height:630px;}
+.miteorica iframe{border:1px solid #237300;border-bottom:3px solid #237300;margin-bottom:25px;position:relative;z-index:1;}
+.miteorica .nota{width:520px; float:left;}
+.miteorica .btn{padding:20px 30px;font-size:120%;}
+
+.miteorica article {margin:10px 0 15px 0;}
+.miteorica article h3{font-family:"Luckiest Guy", Arial, sans-serif;font-size:24px;color:#237300;margin-top:0;}
+.miteorica article img{float:left; border:1px solid #237300;border-bottom:3px solid #237300;margin-right:20px;cursor:pointer;}
+.miteorica article img:hover{opacity:0.7;filter:alpha(opacity=70);}
+
+.miteorica article .video_content{float:left;width:500px;}
+
+.modal-body iframe{background:#ddd url(../img/loading.gif) 50% 50% no-repeat; width:500px; height:281px;margin-bottom:12px;}
+
+
+.altapro td{text-align:center;}/* alta teorica */
+
+/* Reservas */
+
+#Calendario .tabla {table-layout: fixed;}
+#Calendario .tabla th{font-weight:400;font-size:95%;line-height:1.2em;padding:3px 10px;text-align:left;}
+#Calendario .tabla td , #Calendario .tabla th{}
+#Calendario .tabla td img{vertical-align:middle;margin-bottom:3px;}
+#Calendario .tabla td label{margin:0 0 0 3px;font-weight:400;}
+#Calendario .tabla td input{margin:0;}
+#Calendario .hoy{background:#cecfca;}
+#Calendario .tabla th.horario{text-align:center;color:#8e8e8e;font-size:32px;line-height:14px;}
+#Calendario .horario i{}
+
+
+#zonas{margin:10px 0 30px 15px;}
+#zonas li{float:left; width:50%; text-align:center; padding-top: 60px;}
+#zonas .pedralbes{background:url(../img/icon_Pedralbes_L.png) no-repeat 50% 0;}
+#zonas .montjuic{background:url(../img/icon_Montjuic_L.png) no-repeat 50% 0;}
+#uiCalendar{margin:0 0 0 15px;font-size:95%; font-weight:300;}
+
+#listaReservas{margin:20px 0 0 15px;}
+#listaReservas h2{margin-left:0;}
+#listaReservas .btn, #listaReservas .tabla{margin-bottom:20px;}
+#listaReservas .tabla td{font-weight:300;font-size:15px;padding:4px;text-align:center;}
+#listaReservas .tabla .dia, #listaReservas .tabla .precio{white-space:nowrap;font-weight:400;}
+#listaReservas .tabla .dia, #listaReservas .tabla .total{text-align:left;}
+#listaReservas .tabla .total{font-weight:400;}
+#listaReservas .tabla .total span{float:right;color:#237300;}
+
+#listaReservas .alerta{font-size:100%;color:#ae3535;text-transform:uppercase;font-weight:400;margin:10px 0 20px 0;}
+#listaReservas i{font-size:22px;color:#ae3535;}
+
+#reservar .sidebar {margin-top:0;}
+#reservar #Seleccion{background:url(../img/foto_reservar.png) 50% 0 no-repeat; padding-top:170px;}
+
+/* Reset datepicker */
+.ui-datepicker{font-family:Oswald, Arial, sans-serif;text-transform:uppercase;padding:0;background:#fff url(../img/nav.jpg) repeat-x;}
+.ui-widget-header {background: none; border: none; color: #237300; font-weight: 400;font-size:15px;margin-top:3px;}
+.ui-datepicker table {margin: 0;}
+.ui-datepicker-calendar td{border:1px solid #237300;}
+.ui-datepicker-calendar td a{text-align:center;}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: none; border: none; color: #555555; font-weight: normal;}
+.ui-corner-all{border-radius: 0px;}
+.ui-datepicker th {font-weight: 300; padding: 4px 2px;font-size:15px;}
+.ui-state-highlight, .ui-state-active {background:#cecfca !important;color:#237300 !important;}  
+
+/* Tarifas */
+#tarifas i{margin-right:3px; font-size:130%;color: #237300;}
+#tarifas strong{font-weight:400;}
+#tarifas h3{line-height:170%;text-align:center;margin:30px 0 40px 0;}
+#tarifas h3.inscripcion{line-height:150%;text-align:left;margin:-15px 0 15px 0;color:#444;font-family:"Luckiest Guy"}
+
+
+.tarifa{transition: all 0.2s ease-in-out 0s;width:48%;float:left;padding:10px 13px 15px 13px;height:290px;border:1px solid #237300;border-bottom:3px solid #237300;}
+.tarifa:hover{overflow: hidden; transform: scale(1.1, 1.1);-ms-transform: scale(1.1, 1.1); -webkit-transform:scale(1.1, 1.1);}
+.tarifa span{float:right;}
+.tarifa ul {padding:0 0 10px 0;}
+.tarifa ul li{padding:2px 0;}
+.t1{margin-right:4%}
+.t2{}
+
+.fr .tarifa{font-size:95%;height:300px;}
+
+.practicas {background:url(../img/tarifas.png) no-repeat 100% 80%;}
+.practicas ul li{padding:3px 0;}
+.practicas ul li ul{padding:10px 0 7px 30px;}
+
+.descripcion{font-size:15px;}
+.descripcion p{margin-bottom:17px;}
+.descripcion i{font-style:normal;font-weight:700;font-family: "Luckiest Guy", Arial, sans-serif;font-size:25px;}
+
+#info{border:1px solid #237300;border-bottom:3px solid #237300;background:#fff; padding:10px 15px 15px 15px; margin-top:15px;}
+#info p{margin-bottom:7px;}
+#info h2{margin-bottom:25px;}
+
+/* FORO */
+/* Foro general */
+
+#foro table{width:100%;}
+.tabla.foro{text-transform:none;margin-bottom:20px;}
+.tabla.foro th{padding:10px 10px; text-align:left;text-transform:uppercase;}
+.tabla.foro th:nth-child(1){width:40%;}
+.tabla.foro th:nth-child(2){width:90px;}
+.tabla.foro th:nth-child(4){width:20px;}
+
+.tabla.foro td:nth-child(2){text-align:center;}
+.tabla.foro td{font-weight:300;font-size:16px;}
+.tabla.foro i{color:#37b500;font-size:140%;margin-right:3px;}
+.tabla.foro h4{margin:2px 0;font-size:16px;font-weight:400;text-transform:uppercase;}  
+.tabla.foro span{font-size:13px;font-family:Arial, Sans-Serif;} 
+
+#foro h2.head{font-size:22px;}
+#foro .buscar #fBuscar{float:left; width:162px;margin:0 5px 0 15px;height:38px;}
+#foro .buscar .btn{float:right;}
+.fr #foro .buscar .btn{padding-left:7px; padding-right:7px;}
+.fr #foro h2.head{font-size:21px;}
+
+
+.ultimos {border:1px solid #237300;margin-left:15px;background-color:#ffffff;}
+.ultimos li{text-decoration:none;color:#323232; padding:6px 10px 6px 10px;border-bottom:1px solid #237300;}
+.ultimos li span{font-size:12px;font-family:Arial, Sans-Serif;}
+.ultimos li:hover{background-color:#cecfca;}
+
+/* Foro temas */ 
+#foro .titulo .left {max-width:75%;}
+#foro .titulo .left h2{line-height:100%;}
+
+#foro.subforo .titulo h1{margin-bottom:20px;}
+#foro.subforo .titulo h2{margin:0 0 10px 0;}
+#foro.subforo .titulo .btn{margin:57px 0 0 0;}
+ 
+#foro.detalle .titulo h2{margin:10px 0 15px 0;}
+#foro.detalle .titulo .btn{margin:38px 0 0 0;} 
+ 
+#foro.detalle .tabla tr:first-child{visibility:hidden;}
+
+#foro.detalle .infoForo{width:24%;float:left;background:#dedede;margin-right:2%;padding:20px 0 20px 18px;}
+#foro.detalle .infoForo .foto_perfil{margin:20px 0;}
+#foro.detalle .infoForo ul span{font-size:130%;}
+#foro.detalle .infoForo ul strong{font-weight:400;font-size:95%;}
+#foro.detalle .infoForo ul li:first-child{padding-bottom:10px;}
+#foro.detalle .contenido{width:74%;float:left;padding-left:5px;}
+#foro.detalle .contenido h3{border-bottom:1px solid #ccc;padding-bottom:5px;margin-bottom:5px;}
+#foro.detalle .contenido h5{color:#237300;}
+
+#foro.detalle .post{background:#fff;border:1px solid #237300;border-bottom:3px solid #237300;padding:0px 25px 10px 15px;margin-bottom:20px;}
+#foro.detalle .primero.post{background:#dffcdb;}
+
+#foro.detalle #responder{display:none;background:#fff; border:1px solid #237300;border-bottom:3px solid #237300;padding:10px 30px 30px 30px;}
+#foro.detalle #responder .btn{margin-left:15px;}
+.nuevo .form-group{margin-top:15px;margin-bottom:15px;} 
+#Re_Mensaje,#Mensaje{height:200px;}
+
+#tablaResultados{width:100%; clear: both; margin:20px 0 30px 0;}
+.dataTables_wrapper {margin:15px 0 0 0;}
+
+.dataTables_filter{float:right; margin-bottom: 15px;  text-align: right;  width: 50%;}
+.dataTables_length{float: left;  margin-bottom: 15px;  width: 40%;}
+.dataTables_wrapper input, .dataTables_wrapper select{ height: 30px; padding: 4px 8px;  font-size: 14px; line-height: 1.428571429; color: #555555;  vertical-align: middle;  background-color: #ffffff;  border: 1px solid #cccccc;  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;}
+.dataTables_wrapper input:hover, .dataTables_wrapper select:hover{  border-color: #66afe9; outline: 0; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);}
+.dataTables_wrapper select{margin:0 3px;}
+
+.dataTables_info{float: left; margin-top: 13px;margin-bottom:40px; width: 45%;}
+.dataTables_paginate{float: right; text-align: right;margin-top: 13px;margin-bottom:40px;}
+a.paginate_button, .paginate_active {background:#237300;border: 1px solid #237300;   color: #fff !important;  cursor: pointer;   margin: 0 1px;    padding: 3px 6px;border-radius: 3px;}
+a.paginate_button:hover {background:#fff;}
+.paginate_active{background:#fff;color:#237300 !important;cursor: default;}
+
+a.paginate_button.last {margin-right:0;}
+
+
+/* Galeria */
+
+#galeria {padding-top:0;padding-bottom:0;}
+/*#galeria .video-destacado{background:#89d667  url(../img/destello.png) no-repeat 50% -600px; padding-top:30px; padding-bottom:60px;min-height:500px;padding-bottom:25px}*/
+#galeria .video-destacado{padding-top:30px; padding-bottom:60px;min-height:500px;padding-bottom:25px}
+
+#galeria .video-iframe{float:left;}
+#galeria .video-detalles{float:left; width:350px; text-align:left; padding-left:25px;}
+#galeria .video-detalles h2{line-height:1em; }
+#galeria .video-detalles p{color:#333; }
+
+#galeria .wrapGaleria{background:#fff; padding-bottom:60px;}
+#videoGaleria{padding-top:40px;}
+#videoGaleria article iframe{padding-bottom:5px;}
+#videoGaleria article h3{margin-bottom:5px;margin-top:10px; color:#237300; font-size:18px; font-weight:400}
+#videoGaleria article .video-fecha{font-size:95%;font-style:italic;}
+#videoGaleria article p{padding-top:5px; }
+#videoGaleria article .youtube-container{position:relative}
+
+.youtube-player { display: block; overflow: hidden; position: relative; width: 100%; height: 300px; cursor: pointer;  }
+img.youtube-thumb { bottom: 0; display: block; left: 0; margin: auto; max-width: 100%; width: 100%; position: absolute; right: 0; top: 0; height: auto }
+div.play-button { height: 72px; width: 72px; left: 50%; top: 50%; margin-left: -36px; margin-top: -36px; position: absolute; background: url("http://i.imgur.com/TxzC70f.png") no-repeat; }
+
+/*-------------------------------------------------------------------------*/
+/*	Contenido zona privada 
+/*-------------------------------------------------------------------------*/
+
+
+/* Perfil */
+.foto_perfil{background:url(../img/perfil_default.png) no-repeat 50% 50%;width:115px; height:115px; background-size:115px 115px;margin:0 15px;float:left;border-radius: 115px; -moz-border-radius: 115px; -webkit-border-radius: 115px; -o-border-radius: 115px;}
+
+#cuenta .perfil .form-group{margin-bottom:8px;}
+
+#cuenta .perfil label{text-align:left;padding-right:0;white-space:nowrap;color:#5d5d5d; text-transform:uppercase;}
+#cuenta .perfil .foto_perfil{background:url(../img/perfil_default.png) no-repeat 50% 50%;width:169px; height:169px;margin-left:10px;cursor:pointer;background-size:169px 169px;border-radius: 169px; -moz-border-radius: 169px; -webkit-border-radius: 169px; -o-border-radius: 169px;}
+#cuenta .perfil .foto_perfil:hover{opacity:0.8;filter:alpha(opacity=80);}
+#cuenta .perfil  i.plus{margin:20px 0 0 75px;}
+
+#cuenta .perfil .btn{float:right;width:100%; margin-top:15px}
+
+.modalfoto  {padding-top:10px;padding-bottom:25px;}
+.modalfoto .left {width:350px;padding-left:15px;}
+.modalfoto .left p{text-align:left;}
+.modalfoto .btn{margin-top:35px;}
+
+/* Mi Credito */
+
+.missaldos table{margin-bottom:10px;}
+.missaldos table td:nth-child(2),.missaldos table td:nth-child(3){white-space:nowrap;}
+.missaldos table .total{background-color:#dffcdb;font-weight:700;border-left:3px solid #237300;border-right:3px solid #237300;border-top:3px solid #237300;}
+.missaldos .btn{margin-top:10px;}
+
+.aumenta h3{border-bottom:1px solid #888;padding-bottom:5px;}
+.aumenta p{text-align:left;}
+.aumenta .btn{margin-top:20px;margin-bottom:20px;}
+.aumenta .row{background:#fff;border:1px solid #237300;border-bottom:3px solid #237300;margin-left:0; margin-right:0;}
+.aumenta .paypal{border-right:1px solid #237300;}
+
+.fr .aumenta h2{font-size:220%}
+
+/* Mis Reservas */
+#tb_MisReservas a{color:#323232;}
+
+
+.mispracticas img,.misreservas img{margin-top:30px;}
+
+/* Mis Practicas */
+
+.mispracticas ul{background:#fff;border-bottom:3px solid #237300;text-transform:uppercase;font-weight:300;}
+.mispracticas ul li{border:1px solid #237300;border-bottom:none;padding:5px 10px;position:relative;}
+.mispracticas ul li:hover, .mispracticas ul li.hoy{background-color:#dffcdb;}
+.mispracticas ul li span{display:inline-block;}
+.mispracticas ul li .fecha{width:280px;margin-left:5px;}
+.mispracticas ul li .zona{padding-left:15px;position:absolute; right:45px;top:5px;}
+.mispracticas ul strong{font-weight:400;}
+.mispracticas ul li.hoy i{color:#237300;}
+.mispracticas ul li.hoy .shoy{color:#237300;margin-right:4px;}
+
+.mispracticas .nobg{position:absolute; right:10px;top:5px;}
+.mispracticas .nobg i{font-size:22px;color:#ae3535 !important;}
+
+
+/* Pantalla de bienvenida primera vez */
+
+#cuenta .bienvenida{background:url(../img/bienvenida.png) no-repeat 96% 20px;padding-top:80px; padding-right:450px;min-height:470px;}
+#cuenta .bienvenida h1{font-size:52px;}
+
+
+/* Examenes */
+
+#tb_Convocatorias button{padding-top:3px;padding-bottom:3px;width:100%}
+.fr .seleccionarPago h2{font-size:180%}
+
+/*-------------------------------------------------------------------------*/
+/*	Responsive
+/*-------------------------------------------------------------------------*/
+
+@media (min-width: 1200px)  {
+
+}
+
+@media (min-width: 980px)  {
+
+}
+
+
+@media (max-width: 1200px) {
+header nav a{padding:18px 20px 18px 20px;}
+
+/* Slides */
+.content-slide h2{font-size:36px;margin-top:35px;}
+.content-slide h2 span{font-size:55px;}
+.content-slide{width:400px;}
+.content-slide p{width:300px;}
+
+.slide1 h2{font-size:32px;}
+.slide1  h2 span{font-size:50px;}
+
+.slide2 .content-slide{width:450px;}
+.slide2  .content-slide p{width:380px;}
+
+.slide3 .content-slide{width:450px;}
+.slide3  .content-slide p{width:400px;}
+
+.slide4 .content-slide{width:500px;}
+
+.slide5 .content-slide{width:500px;}
+.slide5 .content-slide p {width:350px;}
+.slide5 h2 {font-size:30px;}
+.slide5 h2 span{font-size:45px;}
+}
+
+
+@media (max-width: 979px) {
+
+}
+
+
+@media (max-width: 767px) 
+{
+    
+}
+
+ 
+
+@media screen and (max-width: 560px) {
+
+}
+
+
+@media (max-width: 480px) {
+
+}
