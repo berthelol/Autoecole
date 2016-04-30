@@ -1,0 +1,4 @@
+
+hello_the_world:
+    path:     /helloworld
+    defaults: { _controller: loicPlatformBundle:Advert:index }

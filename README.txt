@@ -8,7 +8,7 @@ Pour l'instant l'url du site est : http://loicberthelot.freeboxos.fr/ (temporair
 
 sur la raspberry le code du site se situe sur -> cd /var/www/html/
 
-SI jamais on veut changer la route du serveur (endroit ou vient taper la requete HTTP) Il faut: 
+Si jamais on veut changer la route du serveur (endroit ou vient taper la requete HTTP) Il faut: 
 
 changer
 /etc/apache2/sites-available/000-default.conf
@@ -19,8 +19,8 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 and change the following line to what you want:
 
 DocumentRoot /var/www/html
+Warning!!!
 Also do a
-
 sudo nano /etc/apache2/apache2.conf
 and find this
 

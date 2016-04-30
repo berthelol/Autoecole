@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle;
+namespace LG\eraseBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class LGeraseBundle extends Bundle
 {
 }
