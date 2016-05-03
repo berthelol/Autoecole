@@ -1,8 +1,7 @@
-test:
-    resource: "@TestBundle/Controller/"
-    type:     annotation
+loic_first:
+    resource: "@LoicFirstBundle/Resources/config/routing.yml"
     prefix:   /
 
-loic_platform:
-    resource: "@loicPlatformBundle/Resources/config/routing.yml"
-    prefix:   /
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

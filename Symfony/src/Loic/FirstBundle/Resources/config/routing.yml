@@ -1,0 +1,20 @@
+loic_first_homepage:
+    path:     /index
+    defaults: { _controller: LoicFirstBundle:Advert:index }
+loic_first_view:
+    path:     /view
+    defaults: { _controller: LoicFirstBundle:Advert:index }
+loic_first_test:
+    path:     /test/{id}
+    defaults: { _controller: LoicFirstBundle:Advert:view }
+    requirements:
+        id: \d*
+loic_first_error:
+    path:     /error
+    defaults: { _controller: LoicFirstBundle:Advert:error }
+loic_first_redirect:
+    path:     /redirect
+    defaults: { _controller: LoicFirstBundle:Advert:redirect }
+
+
+

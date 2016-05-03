@@ -1,3 +1,0 @@
-l_gerase_homepage:
-    path:     /lg
-    defaults: { _controller: LGeraseBundle:Default:index }
